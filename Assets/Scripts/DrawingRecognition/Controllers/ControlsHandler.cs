@@ -25,10 +25,12 @@ namespace DrawingRecognition.Controllers
         [SerializeField] private RecognitionHistoryView recognitionHistoryView;
         [SerializeField] private LibraryView currentLibrarySymbolsView;
         
+        private string _recognizedSymbolTextDefault;
         private string _selectedLibraryTextDefault;
 
         private void Start()
         {
+            _recognizedSymbolTextDefault = recognizedSymbolText.text;
             _selectedLibraryTextDefault = selectedLibraryText.text;
             
             UpdateSelectedLibraryText();
@@ -74,7 +76,7 @@ namespace DrawingRecognition.Controllers
         private void RecognizeDrawing()
         {
             var recognizedSymbolName = drawingRecognition.GetMatch().name;
-            recognizedSymbolText.text = recognizedSymbolName;
+            recognizedSymbolText.text = _recognizedSymbolTextDefault.Replace("{name}", recognizedSymbolName);
             
             var sprite = Resources.Load<Sprite>($"SymbolIcons/{recognizedSymbolName}");
             
