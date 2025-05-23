@@ -1,6 +1,7 @@
 # Drawing Recognition System
 ![Screenshot](Screenshots/screenshot.png)
-Система распознавания 2D-жестов для Unity  
+Система распознавания 2D-жестов для Unity.
+Алгоритм распознавания адаптирован из проекта [UnityDrawingRecognition](https://github.com/gilbertdyer2/UnityDrawingRecognition).
 
 ## Описание 
 Проект реализует систему распознавания фигур, нарисованных пользователем в Unity.   
