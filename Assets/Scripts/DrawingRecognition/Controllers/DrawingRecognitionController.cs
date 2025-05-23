@@ -28,6 +28,7 @@ namespace DrawingRecognition.Controllers
 
     [SerializeField] private bool useDefaultInitialization;
     [SerializeField] private CustomSymbolsLibrary customLibrary;
+    [SerializeField]  private int setPrecisionOnInitialize = 3;
 
     void Awake() { 
         
@@ -243,7 +244,7 @@ namespace DrawingRecognition.Controllers
         currentLib = libraryList[2];
 
         SetWeights(1.0, 1.0, 1.0, 1.0);
-        SetPrecision(4);
+        SetPrecision(setPrecisionOnInitialize);
     }
 
     #endregion Default Initializer

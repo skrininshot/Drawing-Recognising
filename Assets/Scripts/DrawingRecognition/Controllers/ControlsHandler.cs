@@ -11,6 +11,7 @@ namespace DrawingRecognition.Controllers
         [Header("Recognition Settings")]
         [SerializeField] private DrawingRecognitionController drawingRecognition;
         [SerializeField] private DialogueMenuSystem dialogueMenuSystem;
+        [SerializeField] private double recognitionTreshold;
 
         [Header("Buttons")]
         [SerializeField] private Button clearDrawingButton;
@@ -75,8 +76,20 @@ namespace DrawingRecognition.Controllers
         
         private void RecognizeDrawing()
         {
-            var recognizedSymbolName = drawingRecognition.GetMatch().name;
-            recognizedSymbolText.text = _recognizedSymbolTextDefault.Replace("{name}", recognizedSymbolName);
+            var matchList = drawingRecognition.GetMatchList();
+            var recognizedSymbolName = "Unknown";
+            var percentFormatText = "";
+            var tresholdPercent = recognitionTreshold * 100;
+
+            if (matchList[0].Value >= tresholdPercent && matchList[0].Key.name != "Empty")
+            {
+                recognizedSymbolName = matchList[0].Key.name;
+                percentFormatText = matchList[0].Value.ToString("F1") + "%";
+            }
+            
+            recognizedSymbolText.text = _recognizedSymbolTextDefault
+                .Replace("{name}", recognizedSymbolName)
+                .Replace("{percent}", percentFormatText);
             
             var sprite = Resources.Load<Sprite>($"SymbolIcons/{recognizedSymbolName}");
             

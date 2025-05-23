@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "RECOGNIZED SYMBOL: \n<b>{name}"
+  m_text: "RECOGNIZED SYMBOL: \n<b>{name} {percent}"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5186,6 +5186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawingRecognition: {fileID: 2598841494476751232}
   dialogueMenuSystem: {fileID: 1245505748}
+  recognitionTreshold: 0.3
   clearDrawingButton: {fileID: 1786549488}
   recognizeDrawingButton: {fileID: 1933498093}
   saveSymbolButton: {fileID: 1515896249}
@@ -6699,6 +6700,7 @@ MonoBehaviour:
   DuckPointZValue: 10
   useDefaultInitialization: 1
   customLibrary: {fileID: 11400000, guid: ca79ad1d3ea265b45a3136cee011adaf, type: 2}
+  setPrecisionOnInitialize: 3
 --- !u!114 &3143293557624649699
 MonoBehaviour:
   m_ObjectHideFlags: 0
